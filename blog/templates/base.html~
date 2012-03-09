@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Plain & Clean
+   
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20111024
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="blog, chemical engineering, python, programming" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>A Django Powered Blog by William Bryant</title>
+<link href="/static/css/main.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">the blog </a></h1>
+			<p>website by <a href="#">William Bryant</a></p>
+			</div>
+		<div id="menu">
+			<ul>
+				<li class="current_page_item"><a href="#">Homepage</a></li>
+				<li><a href="/blog/">Blog</a></li>
+				<li><a href="/blog/feed/" class="rss">Feed</a></li>
+				<li><a href="#">About</a></li>
+				{% if user.is_staff %}
+				<li><a href="#">Admin</a></li>
+				{% endif %}
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page" class="container">
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<div id="search" >
+						<form method="get" action="#">
+							<div>
+								<input type="text" name="s" id="search-text" value="" />
+								<input type="submit" id="search-submit" value="GO" />
+							</div>
+						</form>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</li>
+				<li>
+					<h2>Aliquam tempus</h2>
+					<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
+				</li>
+				<li>
+					<h2>Categories</h2>
+					<ul>
+						<li><a href="#">1 cat</a></li>
+						<li><a href="#">2 cat</a></li>
+						<li><a href="#">3 dog</a></li>
+						<li><a href="#">4 cat</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2>Blogroll</h2>
+					<ul>
+						<li><a href="guitsaru.com">Guitsaru</a></li>
+						<li><a href="#">2 blog</a></li>
+						<li><a href="#">3 dog</a></li>
+						<li><a href="#">4 blog</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2><a href="/blog/archives/" class="archives">Archives</a></h2>
+					<ul>
+						{{ for post in Post.objects.all().order_by("-created")[:2] }}
+							<li><a href="#">Aliquam libero</a></li>
+							<li><a href="#">Consectetuer adipiscing elit</a></li>
+							<li><a href="#">Metus aliquam pellentesque</a></li>
+							<li><a href="#">Suspendisse iaculis mauris</a></li>
+							<li><a href="#">Urnanet non molestie semper</a></li>
+							<li><a href="#">Proin gravida orci porttitor</a></li>
+						{{ endfor }}
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer-content" class="container">
+	<div id="footer-bg">
+		<div id="column1">
+			<h2>Welcome to my website</h2>
+			<p>This is where I will put information about my website... Once I know exactly what it is going to be used for!</p>
+		</div>
+		<div id="column2">
+			<h2>Useful Resources</h2>
+			<ul>
+				<li><a href="openmdao.org">Open MDAO Framework</a></li>
+				<li><a href="#">Metus aliquam pellentesque</a></li>
+				<li><a href="#">Suspendisse iaculis mauris</a></li>
+				<li><a href="#">Urnanet non molestie semper</a></li>
+				<li><a href="#">Proin gravida orci porttitor</a></li>
+			</ul>
+		</div>
+		<div id="column3">
+			<h2>Recommended Links</h2>
+			<ul>
+				<li><a href="openmdao.org">Open MDAO Framework</a></li>
+				<li><a href="#">Metus aliquam pellentesque</a></li>
+				<li><a href="#">Suspendisse iaculis mauris</a></li>
+				<li><a href="#">Urnanet non molestie semper</a></li>
+				<li><a href="#">Proin gravida orci porttitor</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>Copyright (c) 2011 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
